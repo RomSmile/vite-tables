@@ -21,7 +21,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
     return items.length > 10
       ? [ ...newItems ].splice(activePage === 1 ? activePage - 1 : activePage * 10 - 10, 10)
       : [ ...newItems ];
-  }, [activePage, sortBy, searchFilter]);
+  }, [items, sortBy, searchType, searchFilter, activePage]);
 
   const nextPage = () => {
     setActivePage(activePage + 1)
