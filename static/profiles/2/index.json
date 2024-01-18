@@ -1,0 +1,15 @@
+{
+  "headers": ["profileId", "country", "marketplace"],
+  "items": [
+    {
+      "profileId": "1",
+      "country": "China",
+      "marketplace": "aliExpress"
+    },
+    {
+      "profileId": "2",
+      "country": "China",
+      "marketplace": "aliExpress"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+#root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #212529;
+  padding: 0 5px;
+
+}
+
+html {
+  background-color: #212529;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+

@@ -1,0 +1,17 @@
+{
+  "headers": ["campaignId", "clicks", "cost", "date"],
+  "items": [
+    {
+      "campaignId": "1",
+      "clicks": "China",
+      "cost": "aliExpress",
+      "date": "12.10.2005"
+    },
+    {
+      "campaignId": "2",
+      "clicks": "China",
+      "cost": "aliExpress",
+      "date": "12.10.2005"
+    }
+  ]
+}
