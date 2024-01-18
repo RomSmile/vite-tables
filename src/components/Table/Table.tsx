@@ -60,7 +60,12 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
           gap: "15px",
         }}>
           <p style={{ margin: 0 }}>Sort by:</p>
-          <select className="form-select w-75" aria-label="Default select example" onChange={onChangeSortType}>
+          <select
+            className="form-select w-75"
+            aria-label="Default select example"
+            onChange={onChangeSortType}
+            value={sortBy}
+          >
             <option value="none" selected>Choose sort type</option>
             {headers.map((header) => (
               <option value={header} key={header}>{header}</option>
@@ -76,7 +81,11 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
           gap: "10px",
         }}>
           <p style={{ margin: 0 }}>Search by:</p>
-          <select className="form-select w-75" aria-label="Default select example" onChange={onChangeSearchType}>
+          <select
+            className="form-select w-75"
+            aria-label="Default select example"
+            onChange={onChangeSearchType} value={searchType}
+          >
             <option value="none" selected>Choose sort type</option>
             {headers.map((header) => (
               <option value={header} key={header}>{header}</option>
@@ -90,6 +99,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
           className="input-group-text"
           placeholder="Enter the filter value"
           onChange={onChangeFilter}
+          value={searchFilter}
         />
       </div>
       <table className="table table-dark table-hover mb-0">
