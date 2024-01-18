@@ -50,6 +50,8 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
     setSearchFilter(e.target.value);
   }
 
+  console.log(activeArrayItems.length)
+
   return (
     <>
       <div style={{ width: "320px", marginBottom: "10px" }}>
@@ -123,7 +125,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
         })}
         </tbody>
       </table>
-      {activeArrayItems.length > 10 && (
+      {items.length > 10 && (
         <ul className="pagination bg-dark mt-1">
           <li className="page-item disabled">
             <button className={`btn btn-primary me-1 ${activePage === 1 && "disabled"}`} type="submit" onClick={previousPage}>Previous</button>
@@ -132,7 +134,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
             <a className="page-link" href="#">{activePage}</a>
           </li>
           <li className="page-item">
-            <button className={`btn btn-primary ms-1 ${activePage * 10 >= activeArrayItems.length && "disabled"}`} type="submit" onClick={nextPage}>Next</button>
+            <button className={`btn btn-primary ms-1 ${activeArrayItems.length < 10 && "disabled"}`} type="submit" onClick={nextPage}>Next</button>
           </li>
         </ul>
       )}
