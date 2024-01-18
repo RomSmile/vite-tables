@@ -11,7 +11,11 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
   const activeArrayItems: ITableItem[] = useMemo(() => {
     let newItems = [ ...items ];
     if (sortBy !== 'none') {
-      newItems = [ ...items ].sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
+      newItems = [ ...items ].sort((a, b) => {
+        return sortBy === headers[0]
+          ? +a[sortBy] - +b[sortBy]
+          : a[sortBy].localeCompare(b[sortBy]);
+      })
     }
 
     if (searchType !== 'none' && searchFilter) {
@@ -33,10 +37,13 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
 
   const onChangeSortType = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(e.target.value);
+    setSearchType('none');
+    setSearchFilter('');
   }
 
   const onChangeSearchType = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchType(e.target.value);
+    setSortBy('none')
   }
 
   const onChangeFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,7 +112,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
         })}
         </tbody>
       </table>
-      {items.length > 10 && (
+      {activeArrayItems.length > 10 && (
         <ul className="pagination bg-dark mt-1">
           <li className="page-item disabled">
             <button className={`btn btn-primary me-1 ${activePage === 1 && "disabled"}`} type="submit" onClick={previousPage}>Previous</button>
@@ -114,7 +121,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
             <a className="page-link" href="#">{activePage}</a>
           </li>
           <li className="page-item">
-            <button className={`btn btn-primary ms-1 ${activePage * 10 >= items.length && "disabled"}`} type="submit" onClick={nextPage}>Next</button>
+            <button className={`btn btn-primary ms-1 ${activePage * 10 >= activeArrayItems.length && "disabled"}`} type="submit" onClick={nextPage}>Next</button>
           </li>
         </ul>
       )}
