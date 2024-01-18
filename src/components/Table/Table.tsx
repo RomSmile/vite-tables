@@ -100,6 +100,7 @@ const Table: FC<ITableProps> = ({ outputData, navigate }) => {
           placeholder="Enter the filter value"
           onChange={onChangeFilter}
           value={searchFilter}
+          disabled={searchType === 'none'}
         />
       </div>
       <table className="table table-dark table-hover mb-0">
